@@ -6,3 +6,4 @@ const newLinkedList = new LinkedList(head);
 newLinkedList.append(5);
 newLinkedList.prepend(9);
 console.log(newLinkedList.head);
+console.log(`List size: ${newLinkedList.size()}`);

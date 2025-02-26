@@ -1,3 +1,15 @@
+import Node from './node.js';
+
 export default class LinkedList {
-  constructor() {}
+  constructor(head) {
+    this.head = head;
+  }
+
+  append(value) {
+    let current = this.head;
+    while (current.next !== null) {
+      current = current.next;
+    }
+    current.next = new Node(value);
+  }
 }

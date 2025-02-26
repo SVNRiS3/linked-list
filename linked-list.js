@@ -1,7 +1,7 @@
 import Node from './node.js';
 
 export default class LinkedList {
-  constructor(headNode) {
+  constructor(headNode = new Node()) {
     this.headNode = headNode;
   }
 

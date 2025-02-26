@@ -52,4 +52,12 @@ export default class LinkedList {
     if (index === 0 && foundNode === null) foundNode = this.tail;
     return foundNode;
   }
+
+  pop() {
+    let prev = null;
+    this.iterator((current) => {
+      prev = current;
+    });
+    prev.next = null;
+  }
 }

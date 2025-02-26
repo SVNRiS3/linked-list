@@ -8,10 +8,10 @@ export default class LinkedList {
   iterator(lLForEach = () => {}) {
     let current = this.headNode;
     while (current.next !== null) {
+      current = current.next;
       if (lLForEach(current) === false) {
         break;
       }
-      current = current.next;
     }
     return current;
   }
@@ -44,25 +44,38 @@ export default class LinkedList {
   }
 
   at(index) {
+    if (index === 0) return this.head;
     let foundNode = null;
     this.iterator((current) => {
-      if (index === 0) {
+      if (index === 1) {
         foundNode = current;
         return false;
       }
       index--;
     });
-    if (index === 0 && foundNode === null) foundNode = this.tail;
     return foundNode;
   }
 
   pop() {
     let prev = null;
     this.iterator((current) => {
-      prev = current;
+      if (prev === null) {
+        prev = this.head;
+      } else {
+        prev = prev.next;
+      }
     });
     prev.next = null;
   }
 
-  contains(value) {}
+  contains(value) {
+    let isFound = false;
+    this.iterator((current) => {
+      if (current.value === value) {
+        isFound = true;
+        return false;
+      }
+    });
+    return isFound;
+  }
 }

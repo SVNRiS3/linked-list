@@ -7,4 +7,5 @@ newLinkedList.append(5);
 newLinkedList.prepend(9);
 console.log(`List size: ${newLinkedList.size}`);
 console.log(newLinkedList.head);
-console.log(newLinkedList.tail);
+// console.log(newLinkedList.tail);
+console.log(newLinkedList.at(0));

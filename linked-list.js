@@ -68,6 +68,17 @@ export default class LinkedList {
     prev.next = null;
   }
 
+  iterator(lLForEach = () => {}) {
+    let current = this.headNode;
+    while (current.next !== null) {
+      current = current.next;
+      if (lLForEach(current) === false) {
+        break;
+      }
+    }
+    return current;
+  }
+
   contains(value) {
     let isFound = false;
     this.iterator((current) => {
@@ -77,17 +88,6 @@ export default class LinkedList {
       }
     });
     return isFound;
-  }
-
-  containsRec(value, start = this.headNode) {
-    if (start === null) {
-      return false;
-    }
-    if (start.value === value) {
-      return true;
-    } else {
-      return false || this.containsRec(value, start.next);
-    }
   }
 
   find(value) {}

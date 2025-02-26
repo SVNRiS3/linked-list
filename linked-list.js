@@ -5,12 +5,18 @@ export default class LinkedList {
     this.head = head;
   }
 
-  append(value) {
+  iterator(lLForEach = () => {}) {
     let current = this.head;
     while (current.next !== null) {
       current = current.next;
+      lLForEach(current);
     }
-    current.next = new Node(value);
+    return current;
+  }
+
+  append(value) {
+    const lastNode = this.iterator();
+    lastNode.next = new Node(value);
   }
 
   prepend(value) {
@@ -21,10 +27,9 @@ export default class LinkedList {
   size() {
     let linkedListSize = 0;
     let current = this.head;
-    while (current.next !== null) {
-      current = current.next;
+    this.iterator(() => {
       linkedListSize++;
-    }
+    });
     return linkedListSize;
   }
 }

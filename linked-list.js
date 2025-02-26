@@ -1,12 +1,12 @@
 import Node from './node.js';
 
 export default class LinkedList {
-  constructor(head) {
-    this.head = head;
+  constructor(headNode) {
+    this.headNode = headNode;
   }
 
   iterator(lLForEach = () => {}) {
-    let current = this.head;
+    let current = this.headNode;
     while (current.next !== null) {
       current = current.next;
       lLForEach(current);
@@ -20,16 +20,24 @@ export default class LinkedList {
   }
 
   prepend(value) {
-    const rest = this.head.next;
-    this.head.next = new Node(value, rest);
+    const rest = this.headNode.next;
+    this.headNode.next = new Node(value, rest);
   }
 
-  size() {
+  get size() {
     let linkedListSize = 0;
-    let current = this.head;
+    let current = this.headNode;
     this.iterator(() => {
       linkedListSize++;
     });
     return linkedListSize;
+  }
+
+  get head() {
+    return this.headNode;
+  }
+
+  get tail() {
+    return this.iterator();
   }
 }

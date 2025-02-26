@@ -13,4 +13,4 @@ console.log(newLinkedList.at(2));
 newLinkedList.pop();
 console.log(newLinkedList.head);
 console.log(newLinkedList.contains(2));
-console.log(newLinkedList.containsRec(9));
+console.log(newLinkedList.find(5));

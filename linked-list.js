@@ -90,5 +90,16 @@ export default class LinkedList {
     return isFound;
   }
 
-  find(value) {}
+  find(value) {
+    let index = 0;
+    let isFound = false;
+    this.iterator((current) => {
+      if (current.value === value) {
+        isFound = true;
+        return false;
+      }
+      index++;
+    });
+    return isFound ? index : null;
+  }
 }

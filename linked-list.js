@@ -12,4 +12,9 @@ export default class LinkedList {
     }
     current.next = new Node(value);
   }
+
+  prepend(value) {
+    const rest = this.head.next;
+    this.head.next = new Node(value, rest);
+  }
 }

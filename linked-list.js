@@ -102,4 +102,16 @@ export default class LinkedList {
     });
     return isFound ? index : null;
   }
+
+  toString() {
+    let listString = '';
+
+    this.iterator((current) => {
+      listString += `( ${current.value} ) -> `;
+    });
+
+    listString += 'null';
+
+    return listString;
+  }
 }

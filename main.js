@@ -12,3 +12,4 @@ newLinkedList.pop();
 console.log(newLinkedList.head);
 console.log(newLinkedList.contains(2));
 console.log(newLinkedList.find(5));
+console.log(newLinkedList.toString());

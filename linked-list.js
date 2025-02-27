@@ -114,4 +114,34 @@ export default class LinkedList {
 
     return listString;
   }
+
+  insertAt(value, index) {
+    if (index === 0) {
+      this.prepend(value);
+    } else {
+      let prev = null;
+      let isFound = false;
+
+      const result = this.iterator((current) => {
+        if (prev === null) {
+          prev = this.head;
+        } else {
+          prev = prev.next;
+        }
+
+        if (index < 1) {
+          prev.next = new Node(value, current);
+          isFound = true;
+          return false;
+        }
+        index--;
+      });
+
+      if (!isFound) {
+        index === 0
+          ? (result.next = new Node(value))
+          : console.log('Index too big!');
+      }
+    }
+  }
 }

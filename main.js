@@ -13,3 +13,5 @@ console.log(newLinkedList.head);
 console.log(newLinkedList.contains(2));
 console.log(newLinkedList.find(5));
 console.log(newLinkedList.toString());
+console.log(newLinkedList.insertAt(6, 3));
+console.log(newLinkedList.toString());

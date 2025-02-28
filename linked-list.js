@@ -68,17 +68,6 @@ export default class LinkedList {
     prev.next = null;
   }
 
-  iterator(lLForEach = () => {}) {
-    let current = this.headNode;
-    while (current.next !== null) {
-      current = current.next;
-      if (lLForEach(current) === false) {
-        break;
-      }
-    }
-    return current;
-  }
-
   contains(value) {
     let isFound = false;
     this.iterator((current) => {

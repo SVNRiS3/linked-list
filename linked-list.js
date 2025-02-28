@@ -57,6 +57,9 @@ export default class LinkedList {
   }
 
   pop() {
+    if (this.headNode.next === null) {
+      return console.log('Nothing to pop!');
+    }
     let prev = null;
     this.iterator((current) => {
       if (prev === null) {
@@ -130,6 +133,35 @@ export default class LinkedList {
         index === 0
           ? (result.next = new Node(value))
           : console.log('Index too big!');
+      }
+    }
+  }
+
+  removeAt(index) {
+    index--;
+    if (index === -1) {
+      console.log("Can't remove the head!");
+    } else {
+      let prev = null;
+      let isFound = false;
+
+      const result = this.iterator((current) => {
+        if (prev === null) {
+          prev = this.head;
+        } else {
+          prev = prev.next;
+        }
+
+        if (index < 1) {
+          prev.next = current.next;
+          isFound = true;
+          return false;
+        }
+        index--;
+      });
+
+      if (!isFound && index === 0) {
+        console.log('Index too big!');
       }
     }
   }
